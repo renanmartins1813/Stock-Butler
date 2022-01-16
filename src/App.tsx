@@ -1,6 +1,8 @@
 import getTimeSeriesIntraday from "./utils/getTimeSeriesIntraday";
 import getQuoteEndpoint from "./utils/getQuoteEndpoint";
 import getCurrencyExchangeRate from "./utils/getCurrencyExchangeRate";
+import Firstload from '../src/ui-components/Firstload';
+
 export default function App() {
   async function teste(){
     await console.log(getTimeSeriesIntraday('AAPL', '1min'));
@@ -15,8 +17,8 @@ export default function App() {
   }
   
   return (
-    <h1>
-      Olá Stocks
-    </h1>
+    <>
+      <Firstload />
+    </>
   )
 }
