@@ -1,20 +1,6 @@
 import { useEffect, useState } from "react";
 import useInterval from "../hooks/useInterval";
 
-let line1Data = [
-  [0, 0.5],
-  [0.1, 0.4],
-  [0.2, 0.3],
-  [0.3, 0.25],
-  [0.4, 0.45],
-  [0.5, 0.6],
-  [0.6, 0.7],
-  [0.7, 0.4],
-  [0.8, 0.22],
-  [0.9, 0.1],
-  [1, 0.15],
-];
-
 let color = ["#d6777b", "#76e6b0"];
 
 export default function Loading() {
