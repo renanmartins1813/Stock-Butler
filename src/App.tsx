@@ -6,6 +6,8 @@ import Appshell from "../src/ui-components/Appshell";
 import Container from "../src/ui-components/Container";
 import { useEffect, useState } from "react";
 
+import setCookie from "./utils/setCookie";
+import getCookie from "./utils/getCookie";
 export default function App() {
 
   const [loading, setLoading] = useState(true)
@@ -28,6 +30,11 @@ export default function App() {
     .catch(err => console.log(err.message))
   }, [])
 
+  
+  setCookie('teste','quie');
+  const cookies: any = getCookie();
+  console.log(cookies);
+  console.log(cookies?.cuu);
   return (
     <>
       {loading? <Firstload/> : ''}
