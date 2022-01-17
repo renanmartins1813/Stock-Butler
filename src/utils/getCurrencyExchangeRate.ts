@@ -13,7 +13,6 @@ async function getCurrencyExchangeRate(currency1, currency2){
         }
     ).then(
         data =>{
-            console.log(`${urlFirst}${currency1}${urlSecond}${currency2}${urlKey1}`)
             return data;
         }
     )
