@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 import setCookie from "./utils/setCookie";
 import getCookie from "./utils/getCookie";
+import deleteCookie from "./utils/deleteCookie";
 export default function App() {
 
   const [loading, setLoading] = useState(true)
@@ -32,9 +33,12 @@ export default function App() {
 
   
   setCookie('teste','quie');
-  const cookies: any = getCookie();
+  let cookies: any = getCookie();
   console.log(cookies);
-  console.log(cookies?.cuu);
+  console.log(cookies?.teste);
+  deleteCookie(teste);
+  cookies = getCookie();
+  console.log(cookies?.teste);
   return (
     <>
       {loading? <Firstload/> : ''}
