@@ -32,13 +32,13 @@ export default function App() {
   }, [])
 
   
-  setCookie('teste','quie');
+  setCookie('teste','TESTANDO');
   let cookies: any = getCookie();
   console.log(cookies);
-  console.log(cookies?.teste);
-  deleteCookie(teste);
+  console.log(cookies?.teste, '| cookie.teste ao lado');
+  deleteCookie('teste');
   cookies = getCookie();
-  console.log(cookies?.teste);
+  console.log(cookies?.teste, '| cookie.teste apos deleteCookie() ao lado');
   return (
     <>
       {loading? <Firstload/> : ''}
