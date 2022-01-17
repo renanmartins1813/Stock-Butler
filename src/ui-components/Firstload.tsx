@@ -38,7 +38,7 @@ export default function Loading() {
               d="M 8 0 L 0 0 0 8"
               fill="none"
               stroke="gray"
-              stroke-width="0.4"
+              strokeWidth="0.4"
             />
           </pattern>
           <pattern
