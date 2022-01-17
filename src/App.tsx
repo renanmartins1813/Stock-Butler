@@ -1,45 +1,52 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import getTimeSeriesIntraday from "./utils/getTimeSeriesIntraday";
+import getQuoteEndpoint from "./utils/getQuoteEndpoint";
+import getCurrencyExchangeRate from "./utils/getCurrencyExchangeRate";
+import Firstload from "../src/ui-components/Firstload";
+import Appshell from "../src/ui-components/Appshell";
+import Container from "../src/ui-components/Container";
+import { useEffect, useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+
+  const [loading, setLoading] = useState(true)
+
+  async function teste() {
+    return await getTimeSeriesIntraday("AAPL", "1min")
+  }
+
+  async function teste2() {
+    console.log(await getQuoteEndpoint("AAPL"));
+  }
+
+  async function teste3() {
+    console.log(await getCurrencyExchangeRate("USD", "JPY"));
+  }
+
+  useEffect(()=>{
+    teste()
+    .then(()=> setLoading(false))
+    .catch(err => console.log(err.message))
+  }, [])
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
-}
+    <>
+      {loading? <Firstload/> : ''}
+      <Appshell>
+        <Container
+          title={"Trending Stock"}
+          icon={"bi bi-bar-chart-line-fill"}
+          subinfoIcon={"up"}
+          subinfoText={"AAPL 271,673 (+3,12%)"}
+          main={'Appl5, 304, 902'}
+        ></Container>
 
-export default App
+        <Container
+          title={"Your Portfolio"}
+          icon={"bi bi-person-circle"}
+        ></Container>
+
+        <Container title={"Stock List"}></Container>
+      </Appshell>
+    </>
+  );
+}

@@ -1,0 +1,70 @@
+.container {
+  &:first-child {
+    border-radius: 12px 12px 0 0;
+    margin-top: 0;
+  }
+
+  background-color: $surface;
+  padding: 8px;
+  width: calc(100vw - 16px);
+  color: $text;
+  font-family: "Poppins", sans-serif;
+  margin-top: 8px;
+  padding: 20px;
+
+  &__separator {
+    background-color: transparent;
+    height: 1px;
+    opacity: 0.1;
+    margin-top: 10px;
+  }
+
+  &-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    i {
+      color: $text;
+      font-size: 30px;
+    }
+  }
+
+  &-main {
+    &__text {
+      font-size: 28px;
+      margin: 8px 0px;
+    }
+    &__subinfo {
+      display: flex;
+      font-size: 12px;
+      font-weight: 800;
+      color: $stock-up;
+      align-items: center;
+
+      h5 {
+        margin: 6px 0;
+      }
+      i {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &-link {
+    display: flex;
+    font-size: 12px;
+    gap: 4px;
+    font-weight: 300;
+
+    &:hover{
+        opacity: 0.6;
+        transition: 0.4s;
+    }
+  }
+}
