@@ -6,19 +6,7 @@ const key1 = '7XOX5HDDXILNJFF6';
 const key2 = 'D6C4T0N51S8EYHEF';
 
 async function getCurrencyExchangeRate(currency1, currency2){
-    const data = await fetch(`${urlFirst}${currency1}${urlSecond}${currency2}${urlKey1}`
-    ).then(
-        res =>{
-            res.json();
-        }
-    ).then(
-        data =>{
-            console.log(`${urlFirst}${currency1}${urlSecond}${currency2}${urlKey1}`)
-            return data;
-        }
-    )
-
-    return data
+    return (await fetch(`${urlFirst}${currency1}${urlSecond}${currency2}${urlKey1}`)).json()
 }
 
 export default getCurrencyExchangeRate;
