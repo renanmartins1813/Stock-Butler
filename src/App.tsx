@@ -1,10 +1,23 @@
+import { useEffect, useState } from "react";
+
 import getTimeSeriesIntraday from "./utils/getTimeSeriesIntraday";
-import getQuoteEndpoint from "./utils/getQuoteEndpoint";
-import getCurrencyExchangeRate from "./utils/getCurrencyExchangeRate";
+
 import Firstload from "../src/ui-components/Firstload";
 import Appshell from "../src/ui-components/Appshell";
 import Container from "../src/ui-components/Container";
-import { useEffect, useState } from "react";
+import Graph from "./ui-components/Graph";
+
+
+const data = [
+  { label: "A", x: 0, y: 0 },
+  { label: "B", x: 1, y: 400 },
+  { label: "C", x: 2, y: 300 },
+  { label: "D", x: 3, y: 100 },
+  { label: "E", x: 4, y: 400 },
+  { label: "F", x: 5, y: 500 },
+  { label: "G", x: 6, y: 400 }
+];
+
 
 export default function App() {
 
@@ -12,14 +25,6 @@ export default function App() {
 
   async function teste() {
     return await getTimeSeriesIntraday("AAPL", "1min")
-  }
-
-  async function teste2() {
-    console.log(await getQuoteEndpoint("AAPL"));
-  }
-
-  async function teste3() {
-    console.log(await getCurrencyExchangeRate("USD", "JPY"));
   }
 
   useEffect(()=>{
@@ -40,12 +45,27 @@ export default function App() {
           main={'Appl5, 304, 902'}
         ></Container>
 
+
+        <Container title={"Stock List"}>
+            <Graph
+              width={500}
+              height={300}
+              data={data}
+              horizontalGuides={5}
+              precision={2}
+              verticalGuides={5}
+            />
+        </Container>
+        
         <Container
           title={"Your Portfolio"}
           icon={"bi bi-person-circle"}
-        ></Container>
+        >
+          <List>
+              
+          </List>
+        </Container>
 
-        <Container title={"Stock List"}></Container>
       </Appshell>
     </>
   );

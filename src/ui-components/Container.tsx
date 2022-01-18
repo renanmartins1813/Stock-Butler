@@ -53,12 +53,14 @@ export default function Container({
       </div>
 
       <hr className="container__separator" />
+            <div>
+      {children}
+
+            </div>
       <a className="container-link" href="#">
         <i className="bi bi-box-arrow-up-right"></i>
         <h5>Open Chart</h5>
       </a>
-
-      {children}
     </div>
   );
 }
