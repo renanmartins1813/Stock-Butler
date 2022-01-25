@@ -10,6 +10,8 @@
   width: 100%;
   overflow: hidden;
   gap: 20px;
+  position: fixed;
+  z-index: 9999;
   
   &__text{
       font-size: 1.4rem;
