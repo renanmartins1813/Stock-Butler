@@ -21,7 +21,6 @@ export default function Loading() {
       [150, Math.floor(Math.random() * 120)],
       [200, Math.floor(Math.random() * 50) + 100],
     ]);
-    console.log("mudou");
   }, 2000);
 
   return (
